@@ -1,0 +1,24 @@
+<html lang="ja">
+  <body>
+    <main>
+      <h3 id="title_test"></h3>
+      <div id="body_test"></div>
+      <fotter id="fotter_test"></fotter>
+    </main>
+    <script>
+      fetch('https://meuxe5x79p.microcms.io/api/v1/termsofservice',
+            { headers: { "X-MICROCMS-API-KEY": "86eac0a672984fbb9aa493411f0efa8d293b" } })
+            .then((res) => {
+                return res.json();
+            })
+            .then((json) => {
+                document.getElementById("title_test").innerHTML = json.head;
+                document.getElementById("body_test").innerHTML = json.body;
+                document.getElementById("fotter_test").innerHTML = json.foot;
+            })
+            .catch((reason) => {
+                console.log(reason);
+            });
+   </script>
+  </body>
+</html>
